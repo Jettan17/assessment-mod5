@@ -3,8 +3,6 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      echo "Region: $AWS_REGION"
-      echo "Account ID: $AWS_ACCOUNT_ID"
       # Log in to Amazon ECR using the AWS CLI
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       # Retrieve the Git tag associated with the current commit
